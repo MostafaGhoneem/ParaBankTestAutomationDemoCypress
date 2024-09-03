@@ -1,0 +1,10 @@
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "15/08/1990",
+    "isCitizen": true,
+    "isSenior": false,
+    "hasValidAddress": false,
+    "worksRemotely": true
+  }
+  

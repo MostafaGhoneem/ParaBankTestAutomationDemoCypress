@@ -1,0 +1,15 @@
+{
+    "contractDetails": {
+      "jobTitle": "Software Engineer",
+      "jobDescriptionEng": "Develop and maintain software applications.",
+      "jobDescriptionLocal": "Entwickeln und pflegen Sie Softwareanwendungen.",
+      "employmentType": "full-time",
+      "contractType": "fixed-term",
+      "contractStartDate": "01/10/2024",
+      "contractEndDate": "30/09/2025",
+      "signatoryFullName": "Jane Doe",
+      "signatoryTitle": "CTO",
+      "signatoryEmail": "jane.doe@example.com"
+    }
+  }
+  
