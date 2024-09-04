@@ -1,4 +1,4 @@
-import DatePickerModel from '../../utils/DatePickerModel';
+import DatePickerModel from '../../../support/utils/DatePickerModel';
 
 class OnboardingTalentInfoPage {
   get firstNameInput() { return cy.get('[data-cy="steps-candidate-first-name-input"]'); }
@@ -16,8 +16,8 @@ class OnboardingTalentInfoPage {
 
   constructor() {
     this.datePicker = new DatePickerModel(
-      'input[placeholder="DD/MM/YYYY"]',   // Selector for the date input field
-      '.MuiIconButton-root'                // Selector for the button that opens the date picker
+      'input[placeholder="DD/MM/YYYY"]',   
+      '.MuiIconButton-root'               
     );
   }
 

@@ -8,15 +8,13 @@ get acceptRiskNoRadioBtn() {return cy.get('[data-cy="steps-no-probation-risks-se
 get continueBtn() {return cy.get('[data-cy="steps-continue-btn"]');}
 
 fillContractClausesForm(data) {
-    // Handle Employment Relation
+
     data.isEmployedPreviously ? this.relationWithEmploymentYesRadioBtn.click() : this.relationWithEmploymentNoRadioBtn.click();
-
-    // Handle Probationary Period
     this.probationaryPeriodNoRadioBtn.should('be.visible');
-    data.hasProbationPeriod ? this.probationaryPeriodYesRadioBtn.click() : this.probationaryPeriodNoRadioBtn.click();
 
-    // Handle Risk Acceptance
+    data.hasProbationPeriod ? this.probationaryPeriodYesRadioBtn.click() : this.probationaryPeriodNoRadioBtn.click();
     this.acceptRiskNoRadioBtn.should('be.visible');
+    
     data.acceptsRisk ? this.acceptRiskYesRadioBtn.click() : this.acceptRiskNoRadioBtn.click();
 
     this.continueBtn.click();

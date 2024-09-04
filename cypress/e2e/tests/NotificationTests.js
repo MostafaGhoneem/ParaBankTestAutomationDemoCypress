@@ -12,10 +12,11 @@ import OnboardingCheckListPage from "../pages/Onboarding/OnboardingCheckListPage
 import OnboardingSummaryPage from "../pages/Onboarding/OnboardingSummaryPage";
 
 
-const talentData = require('../../fixtures/onboardingPage/onboardingTelendData.json');
 const contractData= require ('../../fixtures/onboardingPage/onboardingContractData.json')
 const contractClausesData= require ('../../fixtures/onboardingPage/onboardingClausesData.json')
 const compensationData = require ('../../fixtures/onboardingPage/onboardingCompensationData.json')
+const { generateRandomTalentData } = require('../../support/utils/GenerateTalenetRandomData.js');
+
 
 
 const loginPage = new LoginPage();
@@ -39,11 +40,12 @@ describe('Login Tests', () => {
  
 
     it('should log in successfully with valid credentials', () => {
-        // Load test data from JSON fixture
+       
         cy.fixture('loginPage/loginData').then((data) => {
-          const HrManager = data.HrManager;  // Load valid user data
+          const HrManager = data.HrManager;  
           const uniqueEmail = `user_${Date.now()}@example.com`;
-          // Pass data to the login method
+          const talentData = generateRandomTalentData();
+    
           loginPage.login(HrManager.email, HrManager.password);
           dashboardPage.openOnboardingPage();
           onboardingPage.selectCountryFromTheListBox('Germany');
@@ -57,6 +59,7 @@ describe('Login Tests', () => {
           onboardingSummaryPage.AgreeAndFinishTheOnboarding();
           dashboardPage.openNotificationSlide();
           dashboardPage.assertAndClickLastNotification(talentData.firstName);
+          dashboardPage.assertTheNotificationIsMarkedAsRead();
         });
 
 

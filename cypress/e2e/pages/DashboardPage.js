@@ -2,7 +2,7 @@ class DashboardPage {
     get addTalentBtn() {return cy.get('[data-testid="add-employee-menu"]'); }
     get createNewBtn() {return cy.get('[data-testid="create-new-item"]'); }
     get notificationIcon(){return cy.get('.sc-hKiFIE > [data-cy="header-notifications-button"]');}
-    get lastNotification() {return cy.get('.sc-jLqQTn').last();}
+    get lastNotification() {return cy.get('.infinite-scroll-component > :nth-child(1) > :nth-child(2)')}
    
    
  openOnboardingPage(){
@@ -19,8 +19,12 @@ class DashboardPage {
 
 assertAndClickLastNotification(userName) {
   cy.log( this.lastNotification
-       .should('contain.text', userName) // Assert that the last notification contains the userName
-       .click())// Click on the last notification to mark it as read
+       .should('contain.text', userName)
+       .click({force:true}))
+}
+
+assertTheNotificationIsMarkedAsRead(){
+   this.lastNotification.should('have.attr', 'data-is-notification-clickable', 'false');
 }
 }
 

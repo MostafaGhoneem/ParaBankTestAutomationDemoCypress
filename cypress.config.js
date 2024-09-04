@@ -5,9 +5,10 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.js',
     baseUrl : 'https://beta.workmotion.com',
     experimentalStudio: true,
-    defaultCommandTimeout: 120000
+    defaultCommandTimeout: 60000
   },
   viewportHeight: 1000,
-  viewportWidth:  1660
+  viewportWidth:  1660,
+  
   
 });

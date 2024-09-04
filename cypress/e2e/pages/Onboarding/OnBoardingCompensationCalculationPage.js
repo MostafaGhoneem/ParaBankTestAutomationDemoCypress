@@ -49,23 +49,19 @@ class OnBoardingCompensationCalculationPage {
     }
 
     fillCompensationDetails(data) {
-        // Handling Health Insurance Selection
+
         data.healthInsurance ? this.healthInsuranceYesRadioBtn.click() : this.healthInsuranceNoRadioBtn.click();
     
-        // Handling Stock Option Selection
         data.stockOption ? this.stockOptionYesRadioBtn.click() : this.stockOptionNoRadioBtn.click();
     
-        // Handling Fixed Bonus Selection
         data.fixedBonus ? this.fixedBounsYesRadioBtn.click() : this.fixedBounsNoRadioBtn.click();
     
-        // Handling Variable Bonus Selection
         data.variableBonus ? this.variableBounsYesRadioBtn.click() : this.variableBounsNoRadioBtn.click();
     
-        // Handling Allowances Selection
         data.allowances ? this.allowanceYesRadioBtn.click() : this.allowanceNoRadioBtn.click();
     
-        // Inputting Gross Salary with validation
         this.grossSalaryInput.clear().type(String(data.grossSalary)) 
+        
         this.continueBtn.click();
     }
     

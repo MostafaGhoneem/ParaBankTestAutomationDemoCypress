@@ -20,7 +20,6 @@ class OnBoardingContractDetailsPage {
         this.jobDescriptionEngInput.type(data.jobDescriptionEng);
         this.jobDescriptionLocalInput.type(data.jobDescriptionLocal);
         
-        // Select Employment Type
         if (data.employmentType === "full-time") {
           this.fullTimeRadioBtn.click();
         } else if (data.employmentType === "part-time") {
