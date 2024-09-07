@@ -1,4 +1,4 @@
-import BasePage from "./BasePage.cy";
+import BasePage from "./BasePage.js";
 
 class LoginPage extends BasePage{
     constructor() {

@@ -1,31 +1,52 @@
 class DatePickerModel {
-    constructor(dateInputSelector, datePickerOpenButtonSelector) {
-      this.dateInputSelector = dateInputSelector; // Selector for the date input field
-      this.datePickerOpenButtonSelector = datePickerOpenButtonSelector; // Selector for the button that opens the date picker
-    }
-  
-    selectDate(date) {
-      // Convert date to required format if necessary
-      const [day, month, year] = date.split('/'); // Assuming date is in 'DD/MM/YYYY' format
-  
-      // Click the button to open the date picker
-      cy.get(this.datePickerOpenButtonSelector).click();
-  
-      // Select the year
-      cy.get('.MuiPickersYearSelection-container').contains(year).click();
-  
-      // Select the month (optional, depending on the date picker implementation)
-      cy.get('.MuiPickersCalendar-transitionContainer')
-        .contains(new Date(`${month}/01/${year}`).toLocaleString('default', { month: 'long' }))
-        .click();
-  
-      // Select the day
-      cy.get('.MuiPickersDay-root').contains(day).click();
-  
-      // Confirm the date selection (if needed)
-      cy.get('.MuiButtonBase-root').contains('OK').click(); // This will depend on your specific date picker implementation
-    }
+  constructor(dateInputSelector, openDatePickerButtonSelector) {
+    this.dateInputSelector = dateInputSelector;
+    this.openDatePickerButtonSelector = openDatePickerButtonSelector;
   }
+
+ 
+  selectDate(date) {
+    const [day, month, year] = date.split('/');
+
+ 
+    cy.get(this.openDatePickerButtonSelector).click();
+
+    cy.get('.MuiPickersCalendarHeader-switchHeader').then(($header) => {
+      const currentYear = $header.find('.MuiTypography-root').text().split(' ')[1];
+
+      if (parseInt(currentYear) !== parseInt(year)) {
+
+        if (parseInt(currentYear) > parseInt(year)) {
+          cy.get('.MuiPickersCalendarHeader-iconButtonPrevious').click({ multiple: true });
+        } else {
+          cy.get('.MuiPickersCalendarHeader-iconButtonNext').click({ multiple: true });
+        }
+      }
+    });
+
+    cy.get('.MuiTypography-root').contains(year).parent().then(($header) => {
+      const currentMonth = $header.find('.MuiTypography-root').text().split(' ')[0];
+
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+
+      if (monthNames.indexOf(currentMonth) !== parseInt(month) - 1) {
+      
+        if (monthNames.indexOf(currentMonth) > parseInt(month) - 1) {
+          cy.get('.MuiPickersCalendarHeader-iconButtonPrevious').click({ multiple: true });
+        } else {
+          cy.get('.MuiPickersCalendarHeader-iconButtonNext').click({ multiple: true });
+        }
+      }
+    });
+
   
-  export default DatePickerModel;
-  
+    cy.get(`.MuiPickersDay-root:contains("${parseInt(day)}")`).click();
+
+    cy.get(this.dateInputSelector).should('have.value', date);
+  }
+}
+
+export default DatePickerModel;
