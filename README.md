@@ -23,7 +23,7 @@ This project contains automated tests for the ParaBank web application using Cyp
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/MostafaGhoneem/ParaBankTestAutomationDemoCypress.git
 cd ParaBankTestAutomationDemoCypress
 ```
 
