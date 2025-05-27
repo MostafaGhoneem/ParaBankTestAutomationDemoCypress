@@ -1,0 +1,32 @@
+{
+    "validPayment": {
+        "name": "John Doe",
+        "address": "123 Main St",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02108",
+        "phoneNumber": "1234567890",
+        "accountNumber": "13344",
+        "amount": "100.00"
+    },
+    "mismatchedAccount": {
+        "name": "Jane Smith",
+        "address": "456 Oak St",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "phoneNumber": "9876543210",
+        "accountNumber": "13344",
+        "verifyAccountNumber": "13345"
+    },
+    "invalidAmount": {
+        "name": "Test User",
+        "address": "789 Pine St",
+        "city": "Chicago",
+        "state": "IL",
+        "zipCode": "60601",
+        "phoneNumber": "5555555555",
+        "accountNumber": "13344",
+        "amount": "0.00"
+    }
+} 

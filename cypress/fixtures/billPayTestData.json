@@ -1,0 +1,33 @@
+{
+    "validPayment": {
+        "name": "John Doe",
+        "address": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zipCode": "12345",
+        "phone": "1234567890",
+        "accountNumber": "123456",
+        "amount": "100.00"
+    },
+    "mismatchedAccount": {
+        "name": "John Doe",
+        "address": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zipCode": "12345",
+        "phone": "1234567890",
+        "accountNumber": "123456",
+        "verifyAccountNumber": "654321",
+        "amount": "100.00"
+    },
+    "zeroAmount": {
+        "name": "John Doe",
+        "address": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zipCode": "12345",
+        "phone": "1234567890",
+        "accountNumber": "123456",
+        "amount": "0"
+    }
+} 

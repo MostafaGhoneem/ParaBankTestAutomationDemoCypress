@@ -1,0 +1,23 @@
+{
+    "validProfile": {
+        "firstName": "John",
+        "lastName": "Updated",
+        "address": "456 New St",
+        "city": "New City",
+        "state": "CA",
+        "zipCode": "90210",
+        "phoneNumber": "555-0123"
+    },
+    "partialUpdate": {
+        "firstName": "Jane",
+        "lastName": "Partial"
+    },
+    "invalidProfile": {
+        "firstName": "",
+        "lastName": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "zipCode": ""
+    }
+} 

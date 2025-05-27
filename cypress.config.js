@@ -1,29 +1,17 @@
 const { defineConfig } = require('cypress');
-const { allureCypress } = require('allure-cypress/reporter');
 
 module.exports = defineConfig({
   e2e: {
     specPattern: 'cypress/e2e/**/*.cy.js',
-    baseUrl : 'https://beta.workmotion.com',
+    baseUrl: 'https://parabank.parasoft.com/parabank/',
     experimentalStudio: true,
-    defaultCommandTimeout: 60000,
+    defaultCommandTimeout: 10000,
     
-    setupNodeEvents: (on, config) => {
-      allureCypress(on, config);
-
+    setupNodeEvents(on, config) {
       return config;
-    
     },
-    env: {
-      allureReuseAfterSpec: true
-  },
     
-  viewportHeight: 1000,
-  viewportWidth:  1660,
-  
-  
-}
-
-
-
+    viewportHeight: 1000,
+    viewportWidth: 1660,
+  },
 });
