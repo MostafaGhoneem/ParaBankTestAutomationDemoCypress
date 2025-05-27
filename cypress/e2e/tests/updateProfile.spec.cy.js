@@ -10,16 +10,13 @@ describe('Update Profile Tests', () => {
     });
 
     it('should update all profile fields successfully', () => {
-        // Update profile with test data
+        
         updateProfilePage.updateProfile(testData.validProfile);
         
-        // Verify success message
         updateProfilePage.verifyProfileUpdate();
         
-        // Navigate back to update profile page
         updateProfilePage.navigateToUpdateProfile();
         
-        // Verify all fields have the updated values
         updateProfilePage.verifyProfileValues(testData.validProfile);
     });
 
@@ -29,24 +26,14 @@ describe('Update Profile Tests', () => {
             lastName: testData.validProfile.lastName
         };
         
-        // Update only first name and last name
         updateProfilePage.updateProfile(partialUpdate)
         .verifyProfileUpdate()
         .navigateToUpdateProfile()
         .verifyProfileValues(partialUpdate);
         
-        // Verify success message
-       // updateProfilePage.verifyProfileUpdate();
-        
-        // Navigate back to update profile page
-       // updateProfilePage.navigateToUpdateProfile();
-        
-        // Verify only updated fields have new values
-       // updateProfilePage.verifyProfileValues(partialUpdate);
     });
 
     it('should validate required fields', () => {
-        // Submit form with empty fields and verify validation messages
         updateProfilePage.submitEmptyForm();
         updateProfilePage.verifyValidationMessages();
     });

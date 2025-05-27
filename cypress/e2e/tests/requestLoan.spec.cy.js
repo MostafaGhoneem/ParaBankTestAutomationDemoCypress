@@ -15,10 +15,8 @@ describe('Request Loan Tests', () => {
         cy.clearCookies();
         cy.clearLocalStorage();
         
-        // Ensure we have a registered user and are logged in
+    
         requestLoanPage.ensureUserExists();
-        
-        // Navigate to request loan page
         requestLoanPage.visitRequestLoan();
     });
 

@@ -20,12 +20,12 @@ describe('Registration Tests', () => {
     });
 
     it('should show error for duplicate username', () => {
-        // First registration
+
         const firstUser = registerPage.registerNewUser(testData);
         
-        // Try to register with exact same data (including username)
+     
         registerPage.visitRegisterPage();
-        registerPage.fillRegistrationForm(firstUser); // Use same username explicitly
+        registerPage.fillRegistrationForm(firstUser); 
         registerPage.submitRegistration();
         registerPage.verifyDuplicateUsernameError();
     });
@@ -33,7 +33,7 @@ describe('Registration Tests', () => {
     it('should validate password mismatch', () => {
         const userData = { ...testData };
         registerPage.fillRegistrationForm(userData);
-        // Type different password in confirm password field
+     
         registerPage.confirmPassword.clear().type('DifferentPassword123');
         registerPage.submitRegistration();
         registerPage.verifyPasswordMismatchError();

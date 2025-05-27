@@ -9,10 +9,10 @@ describe('Logout Tests', () => {
         
         basePage = new BasePage();
         
-        // Ensure we have a registered user and are logged in
+       
         basePage.ensureUserExists();
         
-        // Verify we're logged in before testing logout
+        
         cy.get('#leftPanel').should('contain', 'Welcome');
     });
 
@@ -23,13 +23,11 @@ describe('Logout Tests', () => {
 
 
     it('should maintain logout state after browser refresh', () => {
-        // Logout first
+
         basePage.logout();
         
-        // Refresh the page
         cy.reload();
         
-        // Verify still logged out
         basePage.verifyLoggedOut();
     });
 }); 
