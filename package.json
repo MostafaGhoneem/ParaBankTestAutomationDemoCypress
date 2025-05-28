@@ -4,9 +4,14 @@
   "description": "Automated tests for ParaBank using Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "cypress:run": "cypress run",
-    "cypress:open": "cypress open"
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "allure:clear": "rimraf allure-results allure-report cypress/screenshots cypress/videos",
+    "allure:report": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report",
+    "allure:history": "xcopy \".\\allure-report\\history\" \".\\allure-results\\history\\\" /E /I /Y",
+    "test": "npm run allure:clear && cypress run --env allure=true",
+    "test:allure": "npm run test && npm run allure:report && npm run allure:open"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +19,11 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^6.0.2",
     "@faker-js/faker": "^9.8.0",
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.0",
     "cypress": "^13.14.1",
     "faker": "^5.5.3",
+    "rimraf": "^5.0.10",
     "webpack": "^5.94.0"
   }
 }
