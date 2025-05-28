@@ -130,13 +130,11 @@ allure open allure-report
 - Check account balances display correctly
 - Verify account numbers are displayed
 - Navigate to account details
-- Validate transaction history
+
 
 ### Login Tests
 - Successful login with valid credentials
 - Failed login with invalid credentials
-- Failed login with empty username
-- Failed login with empty password
 - Failed login with empty username and password
 
 ### Registration Tests
@@ -157,13 +155,11 @@ allure open allure-report
 - Successful logout
 - Verify session termination
 - Check redirect to login page
-- Validate secure logout
 
 ### Open New Account Tests
 - Successfully open new checking account
 - Successfully open new savings account
 - Verify account type selection
-- Validate minimum deposit requirements
 - Check account creation confirmation
 
 ### Request Loan Tests
@@ -175,16 +171,11 @@ allure open allure-report
 
 ### Update Profile Tests
 - Successfully update contact information
-- Verify phone number update
-- Validate address fields
-- Check email format validation
+- Verify partially updating contact information
 - Confirm profile changes saved
 
 ### End-to-End Tests
-- Complete user journey from registration to loan request
-- Full account management workflow
 - Bill payment end-to-end process
-- Profile update and verification flow
 
 ## Reporting
 
