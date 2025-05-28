@@ -11,13 +11,5 @@
     "partialUpdate": {
         "firstName": "Jane",
         "lastName": "Partial"
-    },
-    "invalidProfile": {
-        "firstName": "",
-        "lastName": "",
-        "address": "",
-        "city": "",
-        "state": "",
-        "zipCode": ""
     }
 } 

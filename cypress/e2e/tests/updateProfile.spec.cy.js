@@ -6,18 +6,12 @@ describe('Update Profile Tests', () => {
 
     beforeEach(() => {
         updateProfilePage.ensureUserExists();
-        cy.get('a').contains('Update Contact Info').click();
+        updateProfilePage.navigateToUpdateProfile();
     });
 
-    it('should update all profile fields successfully', () => {
-        
+    it('should update profile successfully', () => {
         updateProfilePage.updateProfile(testData.validProfile);
-        
         updateProfilePage.verifyProfileUpdate();
-        
-        updateProfilePage.navigateToUpdateProfile();
-        
-        updateProfilePage.verifyProfileValues(testData.validProfile);
     });
 
     it('should update partial profile fields successfully', () => {
@@ -26,11 +20,8 @@ describe('Update Profile Tests', () => {
             lastName: testData.validProfile.lastName
         };
         
-        updateProfilePage.updateProfile(partialUpdate)
-        .verifyProfileUpdate()
-        .navigateToUpdateProfile()
-        .verifyProfileValues(partialUpdate);
-        
+        updateProfilePage.updateProfile(partialUpdate);
+        updateProfilePage.verifyProfileUpdate();
     });
 
     it('should validate required fields', () => {

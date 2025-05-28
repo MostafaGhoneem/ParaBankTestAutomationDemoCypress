@@ -17,9 +17,6 @@ class UpdateProfilePage extends BasePage {
 
     // Methods
     updateProfile(profileData) {
-        // Intercept the update profile request to wait for it
-        cy.intercept('POST', '**/services_proxy/bank/customers/update/**').as('updateProfile');
-
         // Fill in the form fields
         if (profileData.firstName) this.firstName.clear().type(profileData.firstName);
         if (profileData.lastName) this.lastName.clear().type(profileData.lastName);
@@ -31,9 +28,6 @@ class UpdateProfilePage extends BasePage {
         
         // Submit the form
         this.updateProfileButton.click();
-        
-        // Wait for the update request to complete
-        cy.wait('@updateProfile');
     }
 
     clearAllFields() {
@@ -61,14 +55,17 @@ class UpdateProfilePage extends BasePage {
     }
 
     verifyProfileUpdate() {
-        // Wait for the specific success message
+        
         cy.get('#updateProfileResult').should('contain', 'been added to the system');
     }
 
     navigateToUpdateProfile() {
+        
+        cy.intercept('GET', '**/services_proxy/bank/customers/*').as('getCustomer');
         cy.get('a').contains('Update Contact Info').click();
         cy.url().should('include', 'updateprofile');
         cy.get('#rightPanel h1.title').should('contain', 'Update Profile');
+        cy.wait('@getCustomer');
     }
 
     verifyProfileValues(profileData) {

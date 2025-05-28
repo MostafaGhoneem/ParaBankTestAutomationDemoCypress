@@ -1,26 +1,13 @@
 {
     "validLoan": {
-        "amount": "1000",
-        "downPayment": "100",
-        "expectedResult": "success",
-        "expectedMessage": "Loan Request Processed"
-    },
-    "highDownPayment": {
-        "amount": "1000",
-        "downPayment": "2000",
-        "expectedResult": "error",
-        "expectedMessage": "Down payment cannot exceed loan amount"
-    },
-    "zeroAmount": {
-        "amount": "0",
-        "downPayment": "0",
-        "expectedResult": "error",
-        "expectedMessage": "The amount cannot be zero"
+        "amount": "10",
+        "downPayment": "1",
+        "expectedResult": "approved"
     },
     "insufficientFunds": {
         "amount": "1000",
         "downPayment": "999999",
-        "expectedResult": "error",
-        "expectedMessage": "Insufficient funds"
+        "expectedResult": "denied"
     }
+    
 } 

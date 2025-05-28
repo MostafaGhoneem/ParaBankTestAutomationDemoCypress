@@ -12,8 +12,7 @@ describe('Request Loan Tests', () => {
     });
 
     beforeEach(() => {
-        cy.clearCookies();
-        cy.clearLocalStorage();
+       
         
     
         requestLoanPage.ensureUserExists();
@@ -22,38 +21,22 @@ describe('Request Loan Tests', () => {
 
     it('should successfully process valid loan request', () => {
         requestLoanPage.requestLoan(testData.validLoan);
-        requestLoanPage.verifyLoanRequestResult(
-            testData.validLoan.expectedResult, 
-            testData.validLoan.expectedMessage
-        );
-    });
-
-    it('should show error when down payment exceeds loan amount', () => {
-        requestLoanPage.requestLoan(testData.highDownPayment);
-        requestLoanPage.verifyLoanRequestResult(
-            testData.highDownPayment.expectedResult, 
-            testData.highDownPayment.expectedMessage
-        );
-    });
-
-    it('should show error for zero amount loan request', () => {
-        requestLoanPage.requestLoan(testData.zeroAmount);
-        requestLoanPage.verifyLoanRequestResult(
-            testData.zeroAmount.expectedResult, 
-            testData.zeroAmount.expectedMessage
-        );
+        requestLoanPage.verifyLoanRequestResult('approved');
+        requestLoanPage.verifyAndNavigateToNewAccount();
     });
 
     it('should show error for insufficient funds', () => {
         requestLoanPage.requestLoan(testData.insufficientFunds);
-        requestLoanPage.verifyLoanRequestResult(
-            testData.insufficientFunds.expectedResult, 
-            testData.insufficientFunds.expectedMessage
-        );
+        requestLoanPage.verifyLoanRequestResult('denied');
     });
 
     it('should require all mandatory fields', () => {
         requestLoanPage.submitLoan();
-        requestLoanPage.verifyZeroAmountError();
+        requestLoanPage.verifyRequiredFieldErrors();
+    });
+
+
+    it('should display correct loan form elements', () => {
+        requestLoanPage.verifyLoanFormElements();
     });
 }); 

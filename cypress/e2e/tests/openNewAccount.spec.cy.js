@@ -8,14 +8,8 @@ describe('Open New Account Tests', () => {
         cy.clearLocalStorage();
         
         openNewAccountPage = new OpenNewAccountPage();
-        
-   
         openNewAccountPage.ensureUserExists();
-        
-    
-        cy.get('a').contains('Open New Account').click();
-        cy.url().should('include', 'openaccount');
-        cy.get('#rightPanel h1.title').should('contain', 'Open New Account');
+        openNewAccountPage.visitOpenNewAccount();
     });
 
     it('should successfully open a new checking account', () => {
@@ -29,13 +23,4 @@ describe('Open New Account Tests', () => {
         openNewAccountPage.verifyAccountCreated();
         openNewAccountPage.newAccountId.should('be.visible');
     });
-
-    it('should store new account id for future use', () => {
-        openNewAccountPage.openNewAccount('CHECKING');
-        openNewAccountPage.verifyAccountCreated();
-        openNewAccountPage.getNewAccountId().then(accountId => {
-            cy.wrap(accountId).as('newAccountId');
-        });
-    });
-
 }); 

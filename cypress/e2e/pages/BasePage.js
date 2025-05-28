@@ -3,18 +3,6 @@ class BasePage {
         this.baseUrl = Cypress.config('baseUrl');
     }
 
-    visit(path = '') {
-        cy.visit(`${this.baseUrl}${path}`);
-    }
-
-    getTitle() {
-        return cy.get('h1.title');
-    }
-
-    getErrorMessage() {
-        return cy.get('.error');
-    }
-
     // Helper method to ensure a user exists
     ensureUserExists() {
         cy.fixture('testData.json').then(userData => {
@@ -39,29 +27,11 @@ class BasePage {
                     cy.get('#customer\\.password').type(userData.password);
                     cy.get('#repeatedPassword').type(userData.confirmPassword);
                     cy.get('input[value="Register"]').click();
-
-                    // After registration, login
-                    //cy.get('input[name="username"]').type(userData.username);
-                    // cy.get('input[name="password"]').type(userData.password);
-                    //cy.get('input[value="Log In"]').click();
                 }
             });
 
-
             cy.get('#leftPanel').should('contain', 'Welcome');
         });
-    }
-
-    logout() {
-        cy.get('a[href*="logout.htm"]').click();
-
-        cy.get('input[name="username"]').should('be.visible');
-    }
-
-    verifyLoggedOut() {
-        cy.get('#loginPanel').should('be.visible');
-        cy.get('input[name="username"]').should('be.visible');
-        cy.get('input[name="password"]').should('be.visible');
     }
 }
 
