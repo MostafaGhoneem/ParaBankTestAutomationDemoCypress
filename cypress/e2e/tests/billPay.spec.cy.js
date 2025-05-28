@@ -5,20 +5,19 @@ describe('Bill Pay Tests', () => {
     let testData;
 
     before(() => {
-        // Load test data once before all tests
+    
         cy.fixture('billPayData.json').then((data) => {
             testData = data;
         });
     });
 
     beforeEach(() => {
-        cy.clearCookies();
-        cy.clearLocalStorage();
+      
         
-        // Ensure we have a registered user and are logged in
+    
         billPayPage.ensureUserExists();
         
-        // Navigate to bill pay page
+  
         billPayPage.visitBillPay();
     });
 

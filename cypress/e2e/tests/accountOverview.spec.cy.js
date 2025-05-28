@@ -4,8 +4,7 @@ describe('Account Overview Tests', () => {
     const accountOverviewPage = new AccountOverviewPage();
 
     beforeEach(() => {
-        cy.clearCookies();
-        cy.clearLocalStorage();
+      
         accountOverviewPage.ensureUserExists();
         accountOverviewPage.clickAccountOverviewLink();
         cy.get('#rightPanel h1.title').should('contain', 'Accounts Overview');

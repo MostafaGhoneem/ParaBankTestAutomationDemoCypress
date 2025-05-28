@@ -33,6 +33,15 @@ class BasePage {
             cy.get('#leftPanel').should('contain', 'Welcome');
         });
     }
+
+    // Logout functionality
+    logout() {
+        cy.get('a[href*="logout.htm"]').click();
+     
+        cy.get('#loginPanel').should('be.visible');
+        cy.get('input[name="username"]').should('be.visible');
+        cy.get('input[name="password"]').should('be.visible');
+    }
 }
 
 export default BasePage;

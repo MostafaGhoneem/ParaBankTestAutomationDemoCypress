@@ -4,8 +4,7 @@ describe('Open New Account Tests', () => {
     let openNewAccountPage;
 
     beforeEach(() => {
-        cy.clearCookies();
-        cy.clearLocalStorage();
+       
         
         openNewAccountPage = new OpenNewAccountPage();
         openNewAccountPage.ensureUserExists();
