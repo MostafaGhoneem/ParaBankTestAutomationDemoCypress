@@ -4,8 +4,6 @@ describe('Open New Account Tests', () => {
     let openNewAccountPage;
 
     beforeEach(() => {
-       
-        
         openNewAccountPage = new OpenNewAccountPage();
         openNewAccountPage.ensureUserExists();
         openNewAccountPage.visitOpenNewAccount();

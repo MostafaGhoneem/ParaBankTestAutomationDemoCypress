@@ -12,12 +12,7 @@ describe('Bill Pay Tests', () => {
     });
 
     beforeEach(() => {
-      
-        
-    
         billPayPage.ensureUserExists();
-        
-  
         billPayPage.visitBillPay();
     });
 

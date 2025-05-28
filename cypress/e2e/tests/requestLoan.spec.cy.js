@@ -5,16 +5,13 @@ describe('Request Loan Tests', () => {
     let testData;
 
     before(() => {
-        // Load test data once before all tests
+       
         cy.fixture('loanData.json').then((data) => {
             testData = data;
         });
     });
 
     beforeEach(() => {
-       
-        
-    
         requestLoanPage.ensureUserExists();
         requestLoanPage.visitRequestLoan();
     });

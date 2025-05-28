@@ -46,8 +46,4 @@ describe('Login Tests', { tags: '@login' }, () => {
         loginPage.verifyFailedLogin();
     });
 
-    afterEach(() => {
-        // Add screenshots to Allure report
-        cy.screenshot();
-    });
-}); 
+            }); 
