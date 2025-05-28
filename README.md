@@ -21,7 +21,7 @@ This project contains automated tests for ParaBank using Cypress with Allure rep
 - npm (Node Package Manager)
 - Git
 - Allure Command Line Tool (for generating reports)
-- Java (Required for Allure)
+
 
 ## Setup Instructions
 
